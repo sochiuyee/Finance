@@ -1,0 +1,24 @@
+@charset "UTF-8";
+@import "reset";
+
+@mixin flex($direction:coloum,$inline:block) {
+    display: if($inline==block,flex,inline-flex);
+    flex-direction: $direction;
+    flex-wrap: wrap;
+}
+
+@mixin textHidden(){
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@mixin textMultiLine($num:2){
+  overflow: hidden;
+  word-break: break-all;
+  white-space: normal;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $num;
+  -webkit-box-orient: vertical;
+}

@@ -1,0 +1,45 @@
+@import "layout";
+
+@mixin btn($color:#fff,$bgcolor:#f04752,$padding:5px,$radius:5px){
+  padding: $padding;
+  background-color: $bgcolor;
+  border-radius: $radius;
+  border: 1px solid $bgcolor;
+  color: $color;
+  text-align: center;
+  display: inline-block;
+}
+
+@mixin list($direction:column){
+  @include flex($direction); // 继承flex的样式
+}
+
+@mixin panel($bgcolor:#fff,$padding:0,$margin:0,$height:112px,$txtPadding:0 32px,$color:#333,$fontSize:32px){
+  background-color: $bgcolor;
+  padding: $padding;
+  margin: $margin;
+  >h4{
+    height: $height;
+    line-height: $height;
+    padding: $txtPadding;
+    @include textHidden();
+    text-align: center;
+    color: $color;
+    font-size: $fontSize
+  }
+  >h2{
+    height: $height;
+    line-height: $height;
+    padding: $txtPadding;
+    font-size: $fontSize;
+    font-weight: bold;
+  }
+}
+
+@mixin iconColor($num:1,$color:#999){
+  &:nth-child(#{$num}){ // 需要用#{}把变量套起来
+    >i{
+      color: $color;
+    }
+  }
+}
